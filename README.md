@@ -66,7 +66,7 @@ class SelfAttention(nn.Module):
 
         # (batch_size, n_heads, block_size, block_size) x (batch_size, n_heads, block_size, hs) -> (batch_size, n_heads, block_size, hs)
         y = attn @ v
-        y = y.transpose(1,2).contiguous().view(B, T, C)
+        y = y.transpose(1,2).contiguous().view(B, T, C) L
 
         y = self.projection(y)
         y = self.resid_drop(y)
